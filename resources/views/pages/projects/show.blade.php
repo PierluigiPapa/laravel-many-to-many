@@ -21,7 +21,7 @@
                     <span>Non ci sono tag collegati</span>
                 @endif
               </p>
-              <p class="card-text text-center"><strong>Descrizione</strong> {{$project->content}}</p>
+              <p class="card-text text-center"><strong>Descrizione:</strong> {{$project->content}}</p>
             </div>
           </div>
     </div>
