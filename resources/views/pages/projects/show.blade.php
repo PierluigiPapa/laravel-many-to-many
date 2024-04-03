@@ -10,9 +10,18 @@
             <img src="{{ asset( '/storage/' . $project->cover) }}" alt="">
             @endif
             <div class="card-body">
-              <p class="card-text text-center fw-bold fs-3">{{$project->slug}}</p>
-              <p class="card-text text-center fw-bold fs-3">{{$project->type ? $project->type->name : 'Non ci sono tipologie'}}</p>
-              <p class="card-text text-center">{{$project->content}}</p>
+              <p class="card-text text-center"><strong>Slug:</strong> {{$project->slug}}</p>
+              <p class="card-text text-center"><strong>Tipologia:</strong> {{$project->type ? $project->type->name : 'Non ci sono tipologie'}}</p>
+              <p class="card-text text-center"><strong>Linguaggi/Framework:</strong>
+                @if (count($project->technologies) > 0)
+                    @foreach ($project->technologies as $technology)
+                        {{ $technology->name }}
+                    @endforeach
+                @else
+                    <span>Non ci sono tag collegati</span>
+                @endif
+              </p>
+              <p class="card-text text-center"><strong>Descrizione</strong> {{$project->content}}</p>
             </div>
           </div>
     </div>

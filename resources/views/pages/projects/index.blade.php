@@ -16,6 +16,8 @@
             <th scope="col" class="text-center">Titolo</th>
             <th scope="col" class="text-center">Descrizione</th>
             <th scope="col" class="text-center">Cover</th>
+            <th scope="col" class="text-center">Tipologia</th>
+            <th scope="col" class="text-center">Linguaggi/Framework</th>
             <th scope="col" class="text-center">Slug</th>
             <th scope="col" class="text-center">Azioni</th>
           </tr>
@@ -27,6 +29,16 @@
                 <td>{{ $item->title }}</td>
                 <td>{{ $item->content }}</td>
                 <td><img src="/storage/{{ $item->cover }}" alt="Cover" width="300" height="200"></td>
+                <td>{{ $item->type ? $item->type->name : 'Nessuna tipologia' }}</td>
+                <td>@if (count($item->technologies) > 0)
+                    <ul>
+                        @foreach ($item->technologies as $technology)
+                            <li>{{ $technology->name }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <span>Non ci sono linguaggi e/o framework utilizzati</span>
+                @endif</td>
                 <td>{{ $item->slug }}</td>
                 <td>
                     <a class="btn btn-primary my-3" href="{{ route('dashboard.projects.edit', $item->id) }}">MODIFICA</a>
