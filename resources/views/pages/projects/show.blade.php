@@ -18,7 +18,7 @@
                         {{ $technology->name }}
                     @endforeach
                 @else
-                    <span>Non ci sono tag collegati</span>
+                    <span>Non ci sono linguaggi e/o framework utilizzati</span>
                 @endif
               </p>
               <p class="card-text text-center"><strong>Descrizione:</strong> {{$project->content}}</p>
