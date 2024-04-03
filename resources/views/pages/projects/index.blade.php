@@ -26,7 +26,7 @@
                 <td><a href="{{route('dashboard.projects.show', $item->id)}}">{{ $item->id }}</a></td>
                 <td>{{ $item->title }}</td>
                 <td>{{ $item->content }}</td>
-                <td>{{ $item->cover }}</td>
+                <td><img src="/storage/{{ $item->cover }}" alt="Cover" width="300" height="200"></td>
                 <td>{{ $item->slug }}</td>
                 <td>
                     <a class="btn btn-primary my-3" href="{{ route('dashboard.projects.edit', $item->id) }}">MODIFICA</a>
